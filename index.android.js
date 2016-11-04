@@ -24,9 +24,7 @@ export default class reactNativeAndroidMediaPlayer extends Component {
     super(props);
     this.state = {
       uri: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-      prepared: false,
-      playing: false,
-      duration: 0
+      play: true
     };
 
     this.play = this.play.bind(this);
@@ -60,10 +58,11 @@ export default class reactNativeAndroidMediaPlayer extends Component {
   }
 
   render() {
-    console.log(MediaPlayer)
     return (
       <View style={styles.container}>
-        <MediaPlayer style={{width: width, height: height}} uri={this.state.uri} speed={"0.01"} />
+        <TouchableOpacity onPress={() => this.setState({play: true})}><Text style={{fontSize: 20}}>Play</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => this.setState({play: false})}><Text style={{fontSize: 20}}>Pause</Text></TouchableOpacity>
+        <MediaPlayer style={{width: 500, height: 400}} uri={this.state.uri} speed={"1"} play={this.state.play}/>
       </View>
     );
   }

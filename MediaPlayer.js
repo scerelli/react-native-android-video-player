@@ -6,6 +6,7 @@ module.exports = requireNativeComponent('RCTMediaPlayer', {
   propTypes: {
     uri: PropTypes.string,
     speed: PropTypes.string,
+    play: PropTypes.bool.isRequired,
     ...View.propTypes
   }
 });

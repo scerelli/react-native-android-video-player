@@ -1,6 +1,7 @@
 {
-  "name": "reactNativeAndroidMediaPlayer",
+  "name": "react-native-android-video-player",
   "version": "0.0.1",
+  "main": "MediaPlayer.js",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",

@@ -1,7 +1,5 @@
 package com.reactnativeandroidmediaplayer.mediaplayer;
 
-import android.app.Activity;
-
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;

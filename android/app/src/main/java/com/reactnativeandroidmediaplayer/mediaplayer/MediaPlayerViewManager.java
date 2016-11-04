@@ -4,8 +4,6 @@ package com.reactnativeandroidmediaplayer.mediaplayer;
  * Created by vood on 03/11/2016.
  */
 
-import android.app.Activity;
-import android.media.session.MediaController;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -33,6 +31,7 @@ public class MediaPlayerViewManager extends SimpleViewManager<VideoView> {
         view.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer player) {
+                player.setLooping(true);
                 view.start();
             }
         });
@@ -44,17 +43,17 @@ public class MediaPlayerViewManager extends SimpleViewManager<VideoView> {
         view.setPlaybackSpeed(fSpeed);
     }
 
-    @ReactMethod
-    public void play(VideoView view) {
-        if(!view.isPlaying()) {
-
-        }
-    }
-
-    @ReactMethod
-    public void pause(VideoView view) {
-        if(view.isPlaying()) {
-            view.pause();
+    @ReactProp(name = "play")
+    public void play(VideoView view, final Boolean play) {
+        try {
+            if(!view.isPlaying() && play) {
+                view.start();
+            } else if(view.canPause() && !play) {
+                view.pause();
+            }
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
         }
     }
 
