@@ -8,8 +8,6 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -52,27 +50,6 @@ public class MediaPlayerViewManager extends SimpleViewManager<VideoView> {
                 view.pause();
             }
         } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    @ReactMethod
-    public void onPreparedCallback(final VideoView view, Callback onPrepared){
-        final Callback onPreparedCallback = onPrepared;
-        try{
-            view.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer player) {
-                    try {
-                        onPreparedCallback.invoke(view.getDuration());
-                    } catch (Exception e) {
-                        Log.e("Error", e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            });
-        }catch(Exception e){
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }

@@ -62,7 +62,7 @@ export default class reactNativeAndroidMediaPlayer extends Component {
       <View style={styles.container}>
         <TouchableOpacity onPress={() => this.setState({play: true})}><Text style={{fontSize: 20}}>Play</Text></TouchableOpacity>
         <TouchableOpacity onPress={() => this.setState({play: false})}><Text style={{fontSize: 20}}>Pause</Text></TouchableOpacity>
-        <MediaPlayer style={{width: 500, height: 400}} uri={this.state.uri} speed={"1"} play={this.state.play}/>
+        <MediaPlayer style={{width: 500, height: 400}} uri={this.state.uri} speed={"0.5"} play={this.state.play}/>
       </View>
     );
   }
