@@ -2,11 +2,29 @@
   "name": "react-native-android-video-player",
   "version": "0.0.1",
   "main": "MediaPlayer.js",
-  "private": true,
+  "private": false,
+  "author": "Stefano Cerelli <spam@stefanocerelli.com>",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scerelli/react-native-android-video-player.git"
+  },
+  "homepage": "https://github.com/scerelli/react-native-android-video-player",
+  "bugs": {
+    "url": "https://github.com/scerelli/react-native-android-video-player/issues"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "android",
+    "video player",
+    "react native android video player",
+    "react-native-android-video-player"
+  ],
+  "license": "MIT",
   "dependencies": {
     "react": "15.3.2",
     "react-native": "0.36.1"
