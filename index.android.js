@@ -15,8 +15,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-var {height, width} = Dimensions.get('window');
-
+ const { height, width } = Dimensions.get('window');
 import MediaPlayer from './MediaPlayer'
 
 export default class reactNativeAndroidMediaPlayer extends Component {
@@ -31,11 +30,7 @@ export default class reactNativeAndroidMediaPlayer extends Component {
     this.pause = this.pause.bind(this);
   }
 
-  componentDidMount(){
-
-  }
-
-  play(){
+  play (){
     if (this.state.prepared === true) {
       this.setState({ playing: true });
       MediaPlayer.play();
@@ -44,7 +39,7 @@ export default class reactNativeAndroidMediaPlayer extends Component {
     return false;
   }
 
-  pause(){
+  pause (){
     if (this.state.prepared === true && this.state.playing === true) {
       MediaPlayer.pause();
       this.setState({ playing: false })
@@ -57,12 +52,24 @@ export default class reactNativeAndroidMediaPlayer extends Component {
     console.log(MediaPlayer)
   }
 
+  play () {
+    this.setState({
+      play: true
+    })
+  }
+
+  stop () {
+    this.setState({
+      play: false
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.setState({play: true})}><Text style={{fontSize: 20}}>Play</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => this.setState({play: false})}><Text style={{fontSize: 20}}>Pause</Text></TouchableOpacity>
-        <MediaPlayer style={{width: 500, height: 400}} uri={this.state.uri} speed={"0.5"} play={this.state.play}/>
+        <TouchableOpacity onPress={this.play}><Text style={{fontSize: 20}}>Play</Text></TouchableOpacity>
+        <TouchableOpacity onPress={this.stop}><Text style={{fontSize: 20}}>Pause</Text></TouchableOpacity>
+        <MediaPlayer style={{width, height}} uri={this.state.uri} speed={"0.5"} play={this.state.play}/>
       </View>
     );
   }
